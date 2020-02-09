@@ -18,11 +18,9 @@ ARG group=polymer
 
 RUN useradd -d "$POLYMER_CLI_HOME" -U -m -s /bin/bash ${user}
 
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends git && \
-    apt-get clean && \
-    npm install -g gulp bower polymer-cli --unsafe-perm 
-RUN npm install -g generator-polymer-init-custom-build
+
+RUN yarn global add polymer-cli
+#RUN npm install -g generator-polymer-init-custom-build
 
 USER ${user}
 
